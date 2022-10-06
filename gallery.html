@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+        }
+        .picta {
+            margin-top: 60px;
+            position: absolute;
+            display: flex;
+            justify-content: left;
+        }
+        .format {
+            display: flex;
+            position: absolute;
+            width: 100%;
+        }
+        .heada {
+            display: block;
+            position: sticky;
+            width: 100%;
+            background-color: beige;
+            color: white;
+            height: 100px;
+            font-size: 40px;
+            text-align: center;
+            margin: 0px;
+            background-image: linear-gradient(silver,gray);
+            background-size: cover;
+            background-blend-mode: darken;
+        }
+        h1 {
+            padding-top: 10px;
+            margin: 0px;
+        }
+        ul {
+            padding-top: 75px;
+            padding-left: 50px;
+            justify-content: left;
+            height: 150vh;
+            width: 15vh;
+            display: grid;
+            grid-template-rows: repeat(4,
+                    1fr 2fr 1fr);
+        }
+        li {
+            width: 500px;
+            height: 500px;
+        }
+        a {
+            text-align: right;
+            width: 200px;
+            height: 200px;
+            display: block;
+        }
+        #album:hover {
+            transform: none;
+            padding-left: 300px;
+            transition: 1s;
+            background-blend-mode: hard-light;
+        }
+        a:hover {
+            overflow: visible;
+            transform: none;
+        }
+        img {
+            transition: .5s;
+            transform: skew(5deg, 20deg);
+            justify-self: left;
+            object-fit: cover;
+            background-blend-mode: exclusion;
+            z-index: 1;
+        }
+        #sideb {
+            display: block;
+            background-image: url(./jank.jpeg);
+            background-size: cover;
+            filter: grayscale(2);
+            height: 200vh;
+            flex: 45%;
+        }
+        #sideb:hover{
+            filter: none;
+        }
+        #player {
+            display: block;
+            height: 200vh;
+            flex: 55%;
+            text-align: center;
+            font-size: 28px;
+            color: white
+        }
+        #albplc {
+            border-radius: 3px;
+            margin: auto;
+            margin-top: 75px;
+            margin-bottom: 0px;
+            display: block;
+            width: 600px;
+            height: 600px;
+            background-image: url(./place.png);
+            background-size: cover
+        }
+        #desc {
+            font-size: 18px;
+            text-align: center;
+            margin: 125px;
+            margin-top: 75px;
+            margin-bottom: 0px;
+        }
+        .othr:hover {
+            border-radius: 5px;
+            width: 250px;
+            height: 250px;
+            transition: .7s;
+        }
+        @media(max-width: 1088px) {
+            #albplc {
+                margin: 0px;
+                margin-top: 75px;
+                margin-bottom: 0px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section class="heada">
+        <h1>Music History</h1>
+    </section>
+    <section class="format">
+        <div id="sideb">
+            <div class="picta">
+                <ul>
+                    <div id="a" onmouseover="select()" onmouseout="desele()" style="filter: blur(1px)grayscale(2);">
+                        <a href="#"><img id="album" src="./ab67616d00001e02b52709706d665bb384582db6.jfif" width="300px"
+                                height="300px" onclick="reiley()"></a>
+                        <a href="#"><img id="album" src="./MetaphoricalMusic.jpg" width="300px" height="300px"
+                                onclick="nuja()"></a>
+                        <a href="#"><img id="album" src="./Copy of Madvillainy_cover.png" width="300px" height="300px"
+                                onclick="doom()"></a>
+                        <a href="#"><img id="album" src="./Smino-noir.jpg" width="300px" height="300px"
+                                onclick="smino()"></a>
+                        <a href="#"><img id="album" src="./TheMelodicBlueCover.jpeg" width="300px" height="300px"
+                                onclick="kendri()"></a>
+                        <a href="#"><img id="album" src="./grove.jpg" width="300px" height="300px"
+                                onclick="grover()"></a>
+                    </div>
+                </ul>
+            </div>
+        </div>
+        <div id="player" style="background-color: rgb(50, 50, 49);">
+            <h1 id="albame">Click on an Album for more!</h1>
+            <div id="albplc"></div>
+            <iframe id="spot" style="border-radius:12px" src="" width="600px;" height="100" frameBorder="0"
+                allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"></iframe>
+            <p id="desc">When You select an album this text will become the description!</p>
+            <p id="otal" style="margin-top:75px;">Here will be some other albums!</p>
+            <img class="othr" id="first" src="./9042837_question_mark_circle_icon.png" width="125px" height="125px"
+                style="margin:50px; margin-top:75px; transform:none; filter:none; align-self: center;">
+            <img class="othr" id="second" src="./9042837_question_mark_circle_icon.png" width="125px" height="125px"
+                style="margin:50px; margin-top:75px; transform:none; filter:none;">
+            <img class="othr" id="third" src="./9042837_question_mark_circle_icon.png" width="125px" height="125px"
+                style="margin:50px; margin-top:75px; transform:none; filter:none;">
+        </div>
+    </section>
+    <script>
+        function select() {
+            document.getElementById('a').style.filter = 'blur(0px)'
+            document.getElementById('album').style.zIndex = '-1'
+        }
+        function desele() {
+            document.getElementById('a').style.filter = 'blur(1px)grayscale(2)'
+        }
+        function reiley() {
+            document.getElementById('spot').src = 'https://open.spotify.com/embed/album/5q27SHT07Qa2LRunMKecjF?utm_source=generator'
+            document.getElementById('albame').innerHTML = 'Freelance|Ben Reiley'
+            document.getElementById('albplc').style.backgroundImage = 'url(./ab67616d00001e02b52709706d665bb384582db6.jfif)';
+            document.getElementById('albplc').style.backgroundSize = 'cover';
+            document.getElementById('desc').innerHTML = 'Ben Reilly grew up in New York on comic books and hip-hop, with lyricists like Nas and Rakim among the first artists to grab his full attention as a child. He’s always been attracted to things that take effort to dissect, and he enjoys going the extra mile to find the deeper meaning in it all. Maybe partly because of that, he never saw himself as the kind of artist who would have a viral moment on TikTok, an app seemingly designed for, well, not overthinking. Ben’s intentional nature is obvious in the music, and evident in every topic of conversation that comes up. He is meticulous about everything—from the birds on his project’s cover to the meaning behind his name to the way he maps out his career path.';
+            document.getElementById('player').style.backgroundColor = 'rgb(37, 37, 110)';
+            document.getElementById('first').src = './free.jpg'
+            document.getElementById('second').src = './charl.jpg'
+            document.getElementById('third').src = './hash.jpg'
+            document.getElementById('otal').innerHTML = 'Here are some other albums! <br> Free verse|Freelance: Charlie|Hashtags ';
+        }
+        function nuja() {
+            document.getElementById('spot').src = 'https://open.spotify.com/embed/album/5FrjDW96mCYw9ECc74c637?utm_source=generator'
+            document.getElementById('albame').innerHTML = 'Metaphorical Music|Nujabes'
+            document.getElementById('albplc').style.backgroundImage = 'url(./MetaphoricalMusic.jpg)';
+            document.getElementById('albplc').style.backgroundSize = 'cover';
+            document.getElementById('desc').innerHTML = 'Jun Seba, better known by his stage name Nujabes, was a Japanese record producer, audio engineer, DJ, composer and arranger best known for his atmospheric instrumental mixes sampling from hip hop, soul, and jazz, as well as incorporating elements of trip hop, breakbeat, downtempo, and ambient music. In 2010, Seba died in a traffic collision at the age of 36.[2] Although relatively niche during his lifetime, Seba has since achieved posthumous acclaim and been referred as the "godfather" of lo-fi hip hop. Seba’s production techniques and career have also been compared favorably with J Dilla.';
+            document.getElementById('player').style.backgroundColor = 'rgb(155, 101, 36)';
+            document.getElementById('first').src = './modal.jpg'
+            document.getElementById('second').src = './luv.jpg'
+            document.getElementById('third').src = './spirit.jpg'
+            document.getElementById('otal').innerHTML = 'Here are some other albums! <br> Modal Soul|Luv(sic) Hexology|Spiritual State';
+        }
+        function doom() {
+            document.getElementById('spot').src = 'https://open.spotify.com/embed/album/19bQiwEKhXUBJWY6oV3KZk?utm_source=generator'
+            document.getElementById('albame').innerHTML = 'Mad Villainy|MF Doom';
+            document.getElementById('albplc').style.backgroundImage = 'url(./download.jpg)';
+            document.getElementById('albplc').style.backgroundSize = 'cover';
+            document.getElementById('desc').innerHTML = '“Doomsday” established MF Doom as an elite rapper whose wit and intellect outpaced the world around him. He also made a name for himself as a producer who was notable for mining material that you would rarely expect to hear sampled in a hip-hop tune. Born in London, Dumile moved to Long Island, New York, at a young age. He began his career in 1988 as a member of KMD, performing as Zev Love X. The group disbanded in 1993 upon the death of member DJ Subroc, Dumile’s brother. After a hiatus, Dumile reemerged in the late 1990s. He began performing at open mic events while wearing a metal mask resembling that of Marvel Comics supervillain Doctor Doom, who is depicted on the cover of his 1999 debut solo album Operation: Doomsday. He adopted the MF Doom persona and rarely made unmasked public appearances thereafter';
+            document.getElementById('player').style.backgroundColor = 'silver';
+            document.getElementById('first').src = './mm.jpg'
+            document.getElementById('second').src = './born.jpg'
+            document.getElementById('third').src = './op.jpg'
+            document.getElementById('otal').innerHTML = 'Here are some other albums! <br> MM..Food|Born Like This|Operation: Doomsday';
+        }
+        function smino() {
+            document.getElementById('spot').src = 'https://open.spotify.com/embed/album/5rVlqi2fHOmWB764N8PsWF?utm_source=generator'
+            document.getElementById('albame').innerHTML = 'Noir|Smino'
+            document.getElementById('albplc').style.backgroundImage = 'url(./Smino-noir.jpg)';
+            document.getElementById('albplc').style.backgroundSize = 'cover';
+            document.getElementById('desc').innerHTML = 'Christopher Bjorn Smith Jr., better known by his stage name Smino, is an American rapper and singer. Smino is the founder of the musical collective Zero Fatigue with Bari, Monte Booker, Jay2, and Ravyn Lenae. He is a member of the hip-hop supergroup Zoink Gang, with JID, Buddy and Guapdad 4000.Smino initially gained local recognition in 2012 where he released a mixtape called Smeezy Dot Com, and a collaboration mixtape with Bari called Retail. He tells me he originally wanted this to be an aquatic strip club, affirming that most of the ideas behind his music videos are his own. This is hardly surprising, the rapper is also a proficient writer, producer, singer, and drummer. “I’m hella involved in everything,” he says proudly.';
+            document.getElementById('player').style.backgroundColor = 'darkslateblue';
+            document.getElementById('first').src = './blk.jpg'
+            document.getElementById('second').src = './des.jpg'
+            document.getElementById('third').src = './bag.jpg'
+            document.getElementById('otal').innerHTML = 'Here are some other albums! <br> Blkswn|I Deserve|Baguetti';
+        }
+        function kendri() {
+            document.getElementById('spot').src = 'https://open.spotify.com/embed/album/7n23fjZTviIUnHyvZGQjni?utm_source=generator'
+            document.getElementById('albame').innerHTML = 'The Melodic Blue|Baby Keem'
+            document.getElementById('albplc').style.backgroundImage = 'url(./TheMelodicBlueCover.jpeg)';
+            document.getElementById('albplc').style.backgroundSize = 'cover';
+            document.getElementById('desc').innerHTML = 'Hykeem Jamaal Carter Jr., known professionally as Baby Keem, is an American rapper and record producer. He initially gained major recognition following the release of his single "Orange Soda", from his second mixtape Die for My B**ch. Keem became a small, yet prominent YouTuber who was involved in the Minecraft Survival Games mini-game scene during the early 2010’s. Keem’s Minecraft account was under the in game name "hykeemc" and his YouTube account went by the alias "AllMightyModz".[6] Keem was known for being a highly skilled player on The Hive and MCGamer Network servers, amassing more than 1,000 subscribers on his YouTube channel because of his prowess. Keem would frequently hold Skype calls where his fans could play along with him.[7] Today, Keem’s channel is inactive, however, the links on his channel direct you to Keem’s current SoundCloud account.';
+            document.getElementById('player').style.backgroundColor = 'teal';
+            document.getElementById('first').src = './die.jpg'
+            document.getElementById('second').src = './fam.jpg'
+            document.getElementById('third').src = './hab.jpg'
+            document.getElementById('otal').innerHTML = 'Here are some other albums! <br> Die For My B**ch|Family ties|The Sound of a Bad Habit';
+        }
+        function grover() {
+            document.getElementById('spot').src = 'https://open.spotify.com/embed/album/1lKYaRbV0AayVPss9i4oOp?utm_source=generator'
+            document.getElementById('albame').innerHTML = 'Anthology|Grover Washington Jr.'
+            document.getElementById('albplc').style.backgroundImage = 'url(./grove.jpg)';
+            document.getElementById('albplc').style.backgroundSize = 'cover';
+            document.getElementById('desc').innerHTML = 'Grover Washington Jr. was an American jazz-funk and soul-jazz saxophonist. Along with Wes Montgomery and George Benson, he is considered by many to be one of the founders of the smooth jazz genre. He wrote some of his material and later became an arranger and producer.Who invented smooth jazz?Grover Washington, Jr. (December 12, 1943 – December 17, 1999) has been considered by many to be the founding father of smooth jazz and a master of the jazz funk genre, working as a prominent songwriter and talented saxophonist.Throughout the 1970s and 1980s, Washington made some of the genre’s most memorable hits.';
+            document.getElementById('player').style.backgroundColor = 'darkred';
+            document.getElementById('first').src = './wine.jpg'
+            document.getElementById('second').src = './mist.jpg'
+            document.getElementById('third').src = './feel.jpg'
+            document.getElementById('otal').innerHTML = 'Here are some other albums! <br> Winelight|Mister Magic|Feels so Good';
+        }
+    </script>
+</body>
+
+</html>
